@@ -1,1 +1,0 @@
-Only Macs can build for macs cause apple is apple.
