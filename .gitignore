@@ -62,4 +62,4 @@ sysinfo.txt
 crashlytics-build.properties
 
 # 0x04 exceptions
-!*/0x04-unity-publishing/Builds/*
+!/0x04-unity-publishing/Builds/*
