@@ -60,3 +60,6 @@ sysinfo.txt
 
 # Crashlytics generated file
 crashlytics-build.properties
+
+# 0x04 exceptions
+!*/0x04-unity-publishing/Builds/*
