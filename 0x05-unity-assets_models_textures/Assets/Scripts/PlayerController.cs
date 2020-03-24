@@ -10,29 +10,71 @@ using Vector3 = UnityEngine.Vector3;
 public class PlayerController : MonoBehaviour
 {
     private string _id;
+    
+    /// <summary>
+    /// Property to use to get a players ID
+    /// </summary>
+    public String Id
+    {
+        get => _id;
+    }
+    /// <summary>
+    /// player start position
+    /// </summary>
     public bool startAtPlayerPos = false;
+
+    [SerializeField]
+    private Controller controller;
+    
     private readonly Vector3 _start = new Vector3(0, 1.25f, 0);
     private Vector3 _spawn;
-    public Controller controller;
 
-    public new GameObject camera;
     private CameraController _camera;
+    
+    /// <summary>
+    /// Camera Controller to use for the player
+    /// </summary>
+    public new GameObject cameraController;
 
     private Vector3 _direction;
+    
+    /// <summary>
+    /// Player's normal movenment speed on the ground
+    /// </summary>
     public float speed = 12f;
+    /// <summary>
+    /// Player's max speed while grounded and in the air
+    /// </summary>
     public float maxSpeed = 16f;
+    
+    /// <summary>
+    /// speed that the player/camera pivot around
+    /// </summary>
     [Range(1, 10)] public float rotationSpeed = 5;
 
+    /// <summary>
+    /// Layer mask that the is a platform for the player
+    /// </summary>
     public LayerMask platform;
+    
+    /// <summary>
+    /// force use to push the play upwards into a jump
+    /// </summary>
     public float jumpForce = 7f;
+    
+    /// <summary>
+    /// the force use the magnify the effect of gravity on player's decent.
+    /// </summary>
     public float fallSpeed = 5f;
 
     private float _yaw;
     private float _pitch;
 
 
-    public Rigidbody rig;
-    public CapsuleCollider col;
+    [SerializeField]
+    private Rigidbody rig;
+    [SerializeField]
+    private CapsuleCollider col;
     private bool _jump;
     private bool _hasJumped = false;
 
@@ -52,18 +94,15 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    public String Id
-    {
-        get => _id;
-        set => _id = value;
-    }
+
 
     void Awake()
     {
+        _id = "player_1";
         _direction = new Vector3(0, 0, 0);
         col = transform.GetComponent<CapsuleCollider>();
         rig = transform.GetComponent<Rigidbody>();
-        _camera = camera.GetComponent<CameraController>();
+        _camera = cameraController.GetComponent<CameraController>();
         _camera.Yaw = 0;
     }
 
@@ -78,8 +117,8 @@ public class PlayerController : MonoBehaviour
     {
         // Debug.Log(string.Format("velocity: {0}", rig.velocity));
         if (controller.TryGetGamePadAxis(GamePad.LeftAxis, out var axis1))
-            _direction = (camera.transform.forward * axis1.x +
-                          camera.transform.right * axis1.y) * speed;
+            _direction = (cameraController.transform.forward * axis1.x +
+                          cameraController.transform.right * axis1.y) * speed;
         else
             _direction = Vector3.zero;
 
@@ -95,7 +134,7 @@ public class PlayerController : MonoBehaviour
             _jump = true;
     }
 
-    bool IsGrounded()
+    private bool IsGrounded()
     {
         return Physics.CheckCapsule(col.bounds.center,
             new Vector3(col.bounds.center.x, col.bounds.min.y, col.bounds.center.z),

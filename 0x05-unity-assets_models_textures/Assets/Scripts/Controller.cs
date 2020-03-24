@@ -2,15 +2,27 @@
 
 namespace PlayControls
 {
+
     public class Controller : MonoBehaviour
     {
+        
         private Vector3 _dir;
         private Vector2 _leftAxis;
         private Vector2 _rightAxis;
+        
+        /// <summary>
+        /// field for adjusting the  minimum threshold of a gamepad analog sticks
+        /// </summary>
         [Range(0.001f, 1f)]
         public float deadZone = 0.01f;
 
 
+        /// <summary>
+        /// try to check if a gamepad feature has been triggered and return a true or false
+        /// </summary>
+        /// <param name="feature"> GamePad type to watch for</param>
+        /// <param name="axis"> data to read out of the method</param>
+        /// <returns>True if GamePad feature was registered else false</returns>
         public bool TryGetGamePadAxis(GamePad feature, out Vector2 axis)
         {
             bool set = false;
@@ -49,6 +61,12 @@ namespace PlayControls
             return set;
         }
         
+        /// <summary>
+        /// try to check if a mouse feature has been triggered and return a true or false
+        /// </summary>
+        /// <param name="feature"> Mouse Input type to watch for</param>
+        /// <param name="axis"> data to read out of the method</param>
+        /// <returns>True if mouse button was registered else false</returns>
         public bool TryGetMouseAxis(Mouse feature, out Vector2 axis)
         {
             bool set = false;
@@ -83,6 +101,9 @@ namespace PlayControls
         
     }
 
+    /// <summary>
+    /// Gamepad features
+    /// </summary>
     public enum GamePad
     {
         LeftAxis,
@@ -91,6 +112,9 @@ namespace PlayControls
         RightTrigger
     }
 
+    /// <summary>
+    /// Mouse features
+    /// </summary>
     public enum Mouse
     {
         Mouse1,
