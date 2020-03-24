@@ -55,11 +55,11 @@ ExportedObj/
 sysinfo.txt
 
 # Builds
-*.apk
+#*.apk
 *.unitypackage
 
 # Crashlytics generated file
 crashlytics-build.properties
 
 # 0x04 exceptions
-!/0x04-unity-publishing/Builds/
+!/0x04-unity_publishing/Builds/
