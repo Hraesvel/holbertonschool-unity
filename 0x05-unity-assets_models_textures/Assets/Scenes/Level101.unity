@@ -2054,6 +2054,11 @@ PrefabInstance:
       propertyPath: useSpawnPt
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5950849360385519843, guid: 334e3892bda4ea34d9b93c895de049f9,
+        type: 3}
+      propertyPath: cameraController
+      value: 
+      objectReference: {fileID: 129037985}
     - target: {fileID: 6021054445175313018, guid: 334e3892bda4ea34d9b93c895de049f9,
         type: 3}
       propertyPath: cameraDist
@@ -3342,9 +3347,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1705895274}
     m_Modifications:
+    - target: {fileID: 100000, guid: 88ac460e0403131478c5e7c869f0091b, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 88ac460e0403131478c5e7c869f0091b, type: 3}
       propertyPath: m_Name
       value: naturePack_059
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 88ac460e0403131478c5e7c869f0091b, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 88ac460e0403131478c5e7c869f0091b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3876,9 +3889,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1705895274}
     m_Modifications:
+    - target: {fileID: 100000, guid: 34dab8ca890b07b409d877c6d090d34d, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 34dab8ca890b07b409d877c6d090d34d, type: 3}
       propertyPath: m_Name
       value: naturePack_038
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 34dab8ca890b07b409d877c6d090d34d, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 34dab8ca890b07b409d877c6d090d34d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4435,9 +4456,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1705895274}
     m_Modifications:
+    - target: {fileID: 100000, guid: f90b393664c8ecd4fa179ccdfffd8dda, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: f90b393664c8ecd4fa179ccdfffd8dda, type: 3}
       propertyPath: m_Name
       value: naturePack_161
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: f90b393664c8ecd4fa179ccdfffd8dda, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f90b393664c8ecd4fa179ccdfffd8dda, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5350,6 +5379,26 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1466027172}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1482471013 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: d0a409b132372084987f40183993e371,
+    type: 3}
+  m_PrefabInstance: {fileID: 2133438673}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1482471014
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1482471013}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: d0a409b132372084987f40183993e371, type: 3}
 --- !u!4 &1539707970 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: ba7a1193441cf6e4ea78c2ef8a6d52a4,
@@ -6498,6 +6547,26 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: 191e64aa8fdea5c449c88bda41d648df, type: 3}
+--- !u!1 &1764300636 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 34dab8ca890b07b409d877c6d090d34d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1098113161}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1764300640
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1764300636}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 34dab8ca890b07b409d877c6d090d34d, type: 3}
 --- !u!4 &1768684183 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 191e64aa8fdea5c449c88bda41d648df,
@@ -8038,9 +8107,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1705895274}
     m_Modifications:
+    - target: {fileID: 100000, guid: d0a409b132372084987f40183993e371, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: d0a409b132372084987f40183993e371, type: 3}
       propertyPath: m_Name
       value: naturePack_063
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: d0a409b132372084987f40183993e371, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: d0a409b132372084987f40183993e371, type: 3}
       propertyPath: m_LocalPosition.x
