@@ -178,7 +178,7 @@ public class PlayerController : MonoBehaviour
         {
             timer.Run = false;
             timer.timerText.color = Color.green;
-            timer.timerText.fontSize = 48 + 36;
+            timer.timerText.fontSize = 60;
         }
 
         if (other.gameObject.CompareTag("Obstacle"))
