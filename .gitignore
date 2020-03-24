@@ -63,3 +63,6 @@ crashlytics-build.properties
 
 # 0x04 exceptions
 !/0x04-unity_publishing/Builds/
+0x05-unity-assets_models_textures/External/
+
+0x05-unity-assets_models_textures/.idea/
