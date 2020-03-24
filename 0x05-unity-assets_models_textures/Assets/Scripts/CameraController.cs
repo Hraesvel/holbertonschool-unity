@@ -23,13 +23,15 @@ public class CameraController : MonoBehaviour
     /// <summary>
     /// Max distance the camera need to return to from the subject.
     /// </summary>
-    public float distance = 6.5f;
+    public float distance = 6.25f;
 
 
 
     private Vector3 _offset;
 
     private Transform _camera;
+    private Vector3 _cameraRestPos;
+
 
     
     /// <summary>
@@ -53,6 +55,7 @@ public class CameraController : MonoBehaviour
         transform.position = player.transform.position;
         _camera.localPosition = Vector3.zero + _offset;
         _camera.rotation = Quaternion.Euler(9, 0, 0);
+        _cameraRestPos =  new Vector3(0, 2.5f, -distance);
     }
 
 
@@ -70,7 +73,6 @@ public class CameraController : MonoBehaviour
 
 
     private readonly Vector3 _cameraMinDist = new Vector3(0, 2.5f, -2f);
-    private readonly Vector3 _cameraRestPos = new Vector3(0, 2.5f, -6.5f);
 
     private bool HandelOutOfSight()
     {

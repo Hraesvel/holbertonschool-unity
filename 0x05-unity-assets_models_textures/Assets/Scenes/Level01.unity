@@ -830,7 +830,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   camera: {fileID: 1734355651}
-  distance: 6.5
+  distance: 6.25
 --- !u!4 &129737833 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: ba7a1193441cf6e4ea78c2ef8a6d52a4,
@@ -6362,7 +6362,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1734355651}
   m_LocalRotation: {x: 0.078459114, y: -0, z: -0, w: 0.99691737}
-  m_LocalPosition: {x: 0, y: 2.5, z: -6.5}
+  m_LocalPosition: {x: 0, y: 2.5, z: -6.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
