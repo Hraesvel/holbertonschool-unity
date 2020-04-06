@@ -12,6 +12,7 @@ public class Timer : MonoBehaviour
     // Start is called before the first frame update
     private bool _runTimer;
     private float _offset = 0;
+    private bool _isPaused;
 
     public bool Run
     {
@@ -23,6 +24,12 @@ public class Timer : MonoBehaviour
     {
         get => _offset;
         set => _offset = value;
+    }
+
+    public bool IsPaused
+    {
+        get => _isPaused;
+        set => _isPaused = value;
     }
 
     private void Awake()
@@ -40,6 +47,8 @@ public class Timer : MonoBehaviour
         }
         else
             timerText.text = _curTime;
+        
+        
 
     }
 }
