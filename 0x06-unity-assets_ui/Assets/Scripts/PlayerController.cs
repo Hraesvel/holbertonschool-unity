@@ -3,6 +3,7 @@ using System.Numerics;
 using System.Runtime.CompilerServices;
 using PlayControls;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Vector3 = UnityEngine.Vector3;
@@ -25,6 +26,9 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private Controller controller;
+
+    [SerializeField] private Timer timer;
+    [SerializeField] private PauseMenu pause;
     
     private readonly Vector3 _start = new Vector3(0, 1.25f, 0);
     private Vector3 _spawn;
@@ -115,7 +119,24 @@ public class PlayerController : MonoBehaviour
 // Update is called once per frame
     void Update()
     {
-        // Debug.Log(string.Format("velocity: {0}", rig.velocity));
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (pause.IsPaused)
+            {
+                Time.timeScale = 1;
+                pause.Resume();
+                if (SceneManager.sceneCount > 1)
+                    SceneManager.UnloadSceneAsync("Scenes/Options");
+            }
+            else
+            {
+                Time.timeScale = 0;
+                pause.Pause();
+            }
+            
+        }
+        
         if (controller.TryGetGamePadAxis(GamePad.LeftAxis, out var axis1))
             _direction = (cameraController.transform.forward * axis1.x +
                           cameraController.transform.right * axis1.y) * speed;
@@ -150,7 +171,6 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        var timer = gameObject.GetComponent<Timer>();
 
         if (other.gameObject.CompareTag("PlayZone"))
         {
