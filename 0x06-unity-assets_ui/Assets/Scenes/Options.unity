@@ -1185,6 +1185,7 @@ MonoBehaviour:
   _bgmSlider: {fileID: 1395086755}
   _sfxSlider: {fileID: 1745852157}
   _invertY: {fileID: 1721490303}
+  mainCamera: {fileID: 65195186}
 --- !u!1 &1305379914
 GameObject:
   m_ObjectHideFlags: 0

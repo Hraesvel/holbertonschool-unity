@@ -9,11 +9,15 @@ public class OptionsMenu : MonoBehaviour
     [SerializeField] private Slider _bgmSlider;
     [SerializeField] private Slider _sfxSlider;
     [SerializeField] private Toggle _invertY;
+    [SerializeField] private Camera mainCamera;
 
     // Start is called before the first frame update
     void Awake()
     {
-       
+        Debug.Log("Options Awake");
+        
+        if (SceneManager.GetActiveScene().buildIndex != 1)
+            mainCamera.gameObject.SetActive(false);
         
         if (PlayerPrefs.HasKey("bgm_level"))
             _bgmSlider.value = PlayerPrefs.GetFloat("bgm_level");
@@ -37,7 +41,14 @@ public class OptionsMenu : MonoBehaviour
         if (SceneManager.GetActiveScene().buildIndex == 1)
             SceneManager.LoadScene("Scenes/MainMenu");
         else
+        {
+            lock (PauseSingleton.padlock)
+            {
+                PauseSingleton.Instancce.Menu.SetActive(true);
+            }
+        
             SceneManager.UnloadSceneAsync(1);
+        }
     }
 
     // Update is called once per frame
