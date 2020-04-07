@@ -1,18 +1,28 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
     public Text timerText;
+    [SerializeField] private WinMenu winMenu;
 
-    private string _curTime;
+    private string _curTime = "0:00.00";
     // Start is called before the first frame update
     private bool _runTimer;
-    private float _offset = 0;
-    private bool _isPaused;
+    private float _offset;
+    private bool _hasWon;
+
+    private void Awake()
+    {
+        Time.timeScale = 1;
+        if (winMenu == null)
+            winMenu = FindObjectOfType<WinMenu>();
+    }
+
 
     public bool Run
     {
@@ -20,24 +30,24 @@ public class Timer : MonoBehaviour
         set => _runTimer = value;
     }
 
+    public bool HasWon { get =>_hasWon; }
+
     public float TimeOffset
     {
         get => _offset;
         set => _offset = value;
     }
 
-    public bool IsPaused
-    {
-        get => _isPaused;
-        set => _isPaused = value;
-    }
 
-    private void Awake()
+    public void Win()
     {
-        _curTime = "0:00.00";
+        Run = false;
+        _hasWon = true;
+        
+        gameObject.SetActive(false);
+        winMenu.DisplayWinMenu(_curTime);
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         if (_runTimer)

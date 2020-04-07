@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
     private Controller controller;
 
     [SerializeField] private Timer timer;
-    [SerializeField] private PauseMenu pause;
+    [SerializeField] private PauseMenu pauseMenu;
     
     private readonly Vector3 _start = new Vector3(0, 1.25f, 0);
     private Vector3 _spawn;
@@ -71,6 +71,8 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     public float fallSpeed = 5f;
 
+    private int _invert = 1;
+
     private float _yaw;
     private float _pitch;
 
@@ -108,6 +110,8 @@ public class PlayerController : MonoBehaviour
         rig = transform.GetComponent<Rigidbody>();
         _camera = cameraController.GetComponent<CameraController>();
         _camera.Yaw = 0;
+        _invert = PlayerPrefs.GetInt("invert_Y") != 0 ? 1 : -1;
+
     }
 
     private void Start()
@@ -119,20 +123,21 @@ public class PlayerController : MonoBehaviour
 // Update is called once per frame
     void Update()
     {
+        _invert = PlayerPrefs.GetInt("invert_Y") != 0 ? 1 : -1;
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !timer.HasWon)
         {
-            if (pause.IsPaused)
+            if (pauseMenu.IsPaused)
             {
                 Time.timeScale = 1;
-                pause.Resume();
+                pauseMenu.Resume();
                 if (SceneManager.sceneCount > 1)
                     SceneManager.UnloadSceneAsync("Scenes/Options");
             }
             else
             {
                 Time.timeScale = 0;
-                pause.Pause();
+                pauseMenu.Pause();
             }
             
         }
@@ -142,12 +147,12 @@ public class PlayerController : MonoBehaviour
                           cameraController.transform.right * axis1.y) * speed;
         else
             _direction = Vector3.zero;
-
-
+        
+        
         if (controller.TryGetGamePadAxis(GamePad.RightAxis, out var axis2))
-            (_pitch, _yaw) = (axis2.y * rotationSpeed * 5, axis2.x * rotationSpeed);
+            (_pitch, _yaw) = (axis2.y, axis2.x * rotationSpeed);
         else if (controller.TryGetMouseAxis(Mouse.Mouse1, out axis2))
-            (_pitch, _yaw) = (axis2.y * rotationSpeed * 5, axis2.x * rotationSpeed);
+            (_pitch, _yaw) = (axis2.y, axis2.x * rotationSpeed);
         else
             (_pitch, _yaw) = (0, 0);
 
@@ -192,15 +197,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        var timer = gameObject.GetComponent<Timer>();
-
-        if (other.gameObject.CompareTag("WinFlag"))
-        {
-            timer.Run = false;
-            timer.timerText.color = Color.green;
-            timer.timerText.fontSize = 60;
-        }
-
+        
         if (other.gameObject.CompareTag("Obstacle"))
         {
             
@@ -213,6 +210,8 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         _camera.Yaw = _yaw;
+        _camera.Height = _pitch * _invert;
+        
 
         var vel = rig.velocity + _direction;
 
