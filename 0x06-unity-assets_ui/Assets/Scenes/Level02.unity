@@ -2044,6 +2044,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 1424980243878541166, guid: fbf44f45ea50650488c2c0957fe0d56b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbf44f45ea50650488c2c0957fe0d56b, type: 3}
 --- !u!54 &478975445 stripped
@@ -2530,6 +2535,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: WinCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7320424215312934372, guid: 9411995f4d83a2a4eb4fe63243f1f6dc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7320424215312934376, guid: 9411995f4d83a2a4eb4fe63243f1f6dc,
         type: 3}
@@ -4876,7 +4886,7 @@ MonoBehaviour:
   m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 1438860038}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1230568363
@@ -5654,6 +5664,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 0779e5d1277806848b714d6a6f32c6c6,
     type: 3}
   m_PrefabInstance: {fileID: 1050056458}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1438860038 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1252784019176132968, guid: fbf44f45ea50650488c2c0957fe0d56b,
+    type: 3}
+  m_PrefabInstance: {fileID: 478763389}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1453170404
 PrefabInstance:

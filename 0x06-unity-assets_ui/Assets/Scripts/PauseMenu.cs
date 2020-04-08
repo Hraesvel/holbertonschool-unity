@@ -17,6 +17,11 @@ public class PauseMenu : MonoBehaviour
         PauseSingleton.Instancce.Menu = this.gameObject;
     }
 
+    private void Start()
+    {
+        gameObject.SetActive(false);
+    }
+
     public bool IsPaused
     {
         get => _isPaused;

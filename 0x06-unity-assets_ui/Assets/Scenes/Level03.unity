@@ -3716,11 +3716,16 @@ PrefabInstance:
         type: 3}
       propertyPath: timer
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8189473802186633869}
     - target: {fileID: 1424980243878541166, guid: fbf44f45ea50650488c2c0957fe0d56b,
         type: 3}
       propertyPath: m_Name
       value: PauseCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 1424980243878541166, guid: fbf44f45ea50650488c2c0957fe0d56b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbf44f45ea50650488c2c0957fe0d56b, type: 3}
