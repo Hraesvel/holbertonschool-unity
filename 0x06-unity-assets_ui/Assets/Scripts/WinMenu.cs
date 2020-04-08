@@ -13,14 +13,20 @@ public class WinMenu : MonoBehaviour
     private Button _nextButton;
 
 
+    private void Awake()
+    {        
+        gameObject.SetActive(true);
+    }
+
     private void Start()
     {
-        gameObject.SetActive(false);
         _nextButton = gameObject.GetComponentsInChildren<Button>().Where((button => button.name == "NextButton")).First();
         var cur = SceneManager.GetActiveScene().buildIndex;
         if (SceneManager.sceneCountInBuildSettings - 1 == cur)
             _nextButton.gameObject.SetActive(false);
     }
+    
+    
 
     public void DisplayWinMenu(string time)
     {

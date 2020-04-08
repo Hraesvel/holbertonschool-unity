@@ -19,8 +19,15 @@ public class Timer : MonoBehaviour
     private void Awake()
     {
         Time.timeScale = 1;
+       
+    }
+
+    private void Start()
+    {
         if (winMenu == null)
             winMenu = FindObjectOfType<WinMenu>();
+        
+        winMenu.gameObject.SetActive(false);
     }
 
 

@@ -9,7 +9,7 @@ public class WinTrigger : MonoBehaviour
     [SerializeField] private Timer _timer;
 
 
-    private void Awake()
+    private void Start()
     {
         if (_timer == null)
             _timer = FindObjectOfType<Timer>();
