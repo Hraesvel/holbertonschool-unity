@@ -27,6 +27,9 @@ public class OptionsMenu : MonoBehaviour
             _invertY.isOn = PlayerPrefs.GetInt("invert_Y") != 0;
     }
 
+    /// <summary>
+    /// Method to handle Apply button functionality
+    /// </summary>
     public void ApplyButton()
     {
         PlayerPrefs.SetFloat("bgm_level", _bgmSlider.value);
@@ -35,7 +38,9 @@ public class OptionsMenu : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-
+    /// <summary>
+    /// Method to handle Back button functionality
+    /// </summary>
     public void BackButton()
     {
         if (SceneManager.GetActiveScene().buildIndex == 1)
@@ -51,5 +56,4 @@ public class OptionsMenu : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
 }

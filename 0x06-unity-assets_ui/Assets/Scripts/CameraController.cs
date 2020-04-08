@@ -42,6 +42,9 @@ public class CameraController : MonoBehaviour
         set => transform.Rotate(0, value, 0);
     }
 
+    /// <summary>
+    /// Property for adjusting the camera Height
+    /// </summary>
     public float Height
     {
         get => _camera.position.y;
@@ -77,11 +80,7 @@ public class CameraController : MonoBehaviour
         _cameraRestPos = new Vector3(0, 2.5f, -distance);
     }
 
-
-    private void Update()
-    {
-    }
-
+    
 
     private void FixedUpdate()
     {

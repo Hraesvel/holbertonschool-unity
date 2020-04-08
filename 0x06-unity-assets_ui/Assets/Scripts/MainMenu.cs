@@ -5,17 +5,25 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
+    /// <summary>
+    /// Method to handle Options buttons functionality
+    /// </summary>
     public void Options()
     {
         SceneManager.LoadScene(1);
     }
 
+    /// <summary>
+    /// Method to handle Exit button functionality
+    /// </summary>
     public void Exit()
     {
         Application.Quit(1);
     }
 
+    /// <summary>
+    /// Method to handle level buttons functionality
+    /// </summary>
     public void LoadLevel(string name)
     {
         SceneManager.LoadScene(name);

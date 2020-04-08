@@ -18,11 +18,17 @@ public class PauseMenu : MonoBehaviour
     }
     
 
+    /// <summary>
+    /// Property to check if pause menu is toggled
+    /// </summary>
     public bool IsPaused
     {
         get => _isPaused;
     }
 
+    /// <summary>
+    /// method that handle game pause and menu toggle on
+    /// </summary>
     public void Pause()
     {
         Time.timeScale = 0;
@@ -32,6 +38,9 @@ public class PauseMenu : MonoBehaviour
 
    
 
+    /// <summary>
+    /// method that handles resuming the game and menu toggle off
+    /// </summary>
     public void Resume()
     {
         _isPaused = false;
@@ -39,12 +48,18 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1;
     }
 
+    /// <summary>
+    /// Method that will restart the current level
+    /// </summary>
     public void Restart()
     {
         Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
+    /// <summary>
+    /// Method that will return player to the main menu
+    /// </summary>
     public void MainMenu()
     {
         Time.timeScale = 1;
@@ -52,6 +67,10 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    
+    /// <summary>
+    /// Method that will open the Options menu
+    /// </summary>
     public void Options()
     {
         gameObject.SetActive(false);
@@ -62,9 +81,18 @@ public class PauseMenu : MonoBehaviour
     }
 }
 
+
+/// <summary>
+/// class used to have a Singleton instance of Pause so that sub-menus (Options) can be used
+/// as a sub-scene
+/// </summary>
 public sealed class PauseSingleton : IDisposable
 {
     private static PauseSingleton _instancce = null;
+    
+    /// <summary>
+    /// Field for handles Mutex locking.
+    /// </summary>
     public static readonly object padlock = new object();
 
     private GameObject _menu;
@@ -73,6 +101,11 @@ public sealed class PauseSingleton : IDisposable
     {
     }
 
+    /// <summary>
+    /// Property that is used to get the PauseSingleton
+    /// if an instance doesn't exist a new instance will be create and
+    /// this instance will be returned until `Disposed()`
+    /// </summary>
     public static PauseSingleton Instancce
     {
         get
@@ -87,6 +120,9 @@ public sealed class PauseSingleton : IDisposable
     }
 
 
+    /// <summary>
+    /// Property use to get/set parent Menu
+    /// </summary>
     public GameObject Menu
     {
         get => _menu;
@@ -94,6 +130,9 @@ public sealed class PauseSingleton : IDisposable
     }
 
 
+    /// <summary>
+    /// Method to dispose PauseSingleton instance.
+    /// </summary>
     public void Dispose()
     {
         _instancce = null;

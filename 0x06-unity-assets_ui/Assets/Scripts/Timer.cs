@@ -7,6 +7,9 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
+    /// <summary>
+    /// Text object that will display the time.
+    /// </summary>
     public Text timerText;
     [SerializeField] private WinMenu winMenu;
 
@@ -31,14 +34,25 @@ public class Timer : MonoBehaviour
     }
 
 
+    /// <summary>
+    /// property that can me used start or stop the timer or check if the timer
+    /// has stop running.
+    /// </summary>
     public bool Run
     {
         get => _runTimer;
         set => _runTimer = value;
     }
 
+    
+    /// <summary>
+    /// Property to check if the timer has stop because the play has won the match.
+    /// </summary>
     public bool HasWon { get =>_hasWon; }
 
+    /// <summary>
+    /// Property use to offset the timer
+    /// </summary>
     public float TimeOffset
     {
         get => _offset;
@@ -46,6 +60,10 @@ public class Timer : MonoBehaviour
     }
 
 
+    /// <summary>
+    /// method use to stop the timer on a win case and
+    /// send the time to the assigned WinMenu
+    /// </summary>
     public void Win()
     {
         Run = false;
@@ -54,8 +72,8 @@ public class Timer : MonoBehaviour
         gameObject.SetActive(false);
         winMenu.DisplayWinMenu(_curTime);
     }
-    
-    void Update()
+
+    private void Update()
     {
         if (_runTimer)
         {
