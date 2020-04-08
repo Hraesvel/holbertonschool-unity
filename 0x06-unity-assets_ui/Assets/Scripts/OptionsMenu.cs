@@ -10,7 +10,7 @@ public class OptionsMenu : MonoBehaviour
     [SerializeField] private Slider _sfxSlider;
     [SerializeField] private Toggle _invertY;
     [SerializeField] private Camera mainCamera;
-
+    
     // Start is called before the first frame update
     void Awake()
     {
@@ -35,7 +35,14 @@ public class OptionsMenu : MonoBehaviour
         PlayerPrefs.SetFloat("bgm_level", _bgmSlider.value);
         PlayerPrefs.SetFloat("sfx_level", _sfxSlider.value);
         PlayerPrefs.SetInt("invert_Y", _invertY.isOn ? 1 : 0);
+        if (PauseSingleton.Instancce != null)
+            lock (PauseSingleton.padlock)
+            {
+                PauseSingleton.Instancce.Camera.IsInverted = _invertY.isOn;
+            }
+
         PlayerPrefs.Save();
+        
     }
 
     /// <summary>

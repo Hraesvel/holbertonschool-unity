@@ -110,8 +110,7 @@ public class PlayerController : MonoBehaviour
         rig = transform.GetComponent<Rigidbody>();
         _camera = cameraController.GetComponent<CameraController>();
         _camera.Yaw = 0;
-        _invert = PlayerPrefs.GetInt("invert_Y") != 0 ? 1 : -1;
-
+        _camera.IsInverted = PlayerPrefs.GetInt("invert_Y") != 0 ? true : false;
     }
 
     private void Start()
@@ -123,8 +122,6 @@ public class PlayerController : MonoBehaviour
 // Update is called once per frame
     void Update()
     {
-        _invert = PlayerPrefs.GetInt("invert_Y") != 0 ? 1 : -1;
-
         if (Input.GetKeyDown(KeyCode.Escape) && !timer.HasWon)
         {
             if (pauseMenu.IsPaused)
@@ -210,7 +207,7 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         _camera.Yaw = _yaw;
-        _camera.Height = _pitch * _invert;
+        _camera.Height = _pitch;
         
 
         var vel = rig.velocity + _direction;

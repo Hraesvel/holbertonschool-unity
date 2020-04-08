@@ -15,6 +15,7 @@ public class PauseMenu : MonoBehaviour
     private void Awake()
     {
         PauseSingleton.Instancce.Menu = this.gameObject;
+        PauseSingleton.Instancce.Camera = FindObjectOfType<CameraController>();
     }
     
 
@@ -128,6 +129,17 @@ public sealed class PauseSingleton : IDisposable
         get => _menu;
         set => _menu = value;
     }
+
+    /// <summary>
+    /// Property use to Get/Set main CameraController 
+    /// </summary>
+    public CameraController Camera
+    {
+        set;
+        get;
+    }
+
+ 
 
 
     /// <summary>

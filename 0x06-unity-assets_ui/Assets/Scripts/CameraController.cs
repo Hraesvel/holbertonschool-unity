@@ -50,6 +50,9 @@ public class CameraController : MonoBehaviour
         get => _camera.position.y;
         set
         {
+            if (IsInverted)
+                value *= -1;
+            
             if (_cameraRestPos.y + value > distance)
                 _cameraRestPos.y = distance;
 
@@ -64,6 +67,11 @@ public class CameraController : MonoBehaviour
                 Math.Abs(_cameraRestPos.z) < distance ? _cameraRestPos.z + value : -distance);
         }
     }
+
+    /// <summary>
+    /// Property for Get/Set camera Y-Axis invert status
+    /// </summary>
+    public bool IsInverted { get; set; }
 
 
     private void Awake()
