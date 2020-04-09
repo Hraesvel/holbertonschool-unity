@@ -70,3 +70,5 @@ crashlytics-build.properties
 0x06-unity-assets_ui/.idea/
 
 0x06-unity-assets_ui/External/
+
+!/0x06-unity-assets_ui/Builds/
