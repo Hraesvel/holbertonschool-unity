@@ -30,7 +30,7 @@ public class Timer : MonoBehaviour
         if (winMenu == null)
             winMenu = FindObjectOfType<WinMenu>();
         
-        winMenu.gameObject.SetActive(false);
+        // winMenu.gameObject.SetActive(false);
     }
 
 

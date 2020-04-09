@@ -12,14 +12,10 @@ public class WinMenu : MonoBehaviour
     [SerializeField] private Text finalText;
     private Button _nextButton;
 
-
-    private void Awake()
-    {
-        gameObject.SetActive(true);
-    }
-
+    
     private void Start()
     {
+        
         _nextButton = gameObject.GetComponentsInChildren<Button>().Where((button => button.name == "NextButton"))
             .First();
         var cur = SceneManager.GetActiveScene().buildIndex;
