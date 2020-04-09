@@ -122,7 +122,7 @@ public class PlayerController : MonoBehaviour
 // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && !timer.HasWon)
+        if ((Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Pause")) && !timer.HasWon)
         {
             if (pauseMenu.IsPaused)
             {

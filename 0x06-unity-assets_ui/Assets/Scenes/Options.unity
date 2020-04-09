@@ -165,7 +165,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &65195185
 AudioListener:
   m_ObjectHideFlags: 0
@@ -173,7 +173,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 65195184}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!20 &65195186
 Camera:
   m_ObjectHideFlags: 0
@@ -1186,6 +1186,7 @@ MonoBehaviour:
   _sfxSlider: {fileID: 1745852157}
   _invertY: {fileID: 1721490303}
   mainCamera: {fileID: 65195186}
+  eventSystem: {fileID: 268221783}
 --- !u!1 &1305379914
 GameObject:
   m_ObjectHideFlags: 0

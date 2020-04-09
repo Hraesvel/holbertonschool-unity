@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
@@ -14,8 +15,9 @@ public class PauseMenu : MonoBehaviour
 
     private void Awake()
     {
-        PauseSingleton.Instancce.Menu = this.gameObject;
-        PauseSingleton.Instancce.Camera = FindObjectOfType<CameraController>();
+        PauseSingleton.Instance.Menu = this.gameObject;
+        PauseSingleton.Instance.Camera = FindObjectOfType<CameraController>();
+        PauseSingleton.Instance.EventSystem = EventSystem.current;
     }
     
 
@@ -35,6 +37,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0;
         _isPaused = true;
         gameObject.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(transform.Find("ResumeButton").gameObject);
     }
 
    
@@ -64,7 +67,7 @@ public class PauseMenu : MonoBehaviour
     public void MainMenu()
     {
         Time.timeScale = 1;
-        PauseSingleton.Instancce.Dispose();
+        PauseSingleton.Instance.Dispose();
         SceneManager.LoadScene(0);
     }
 
@@ -107,7 +110,7 @@ public sealed class PauseSingleton : IDisposable
     /// if an instance doesn't exist a new instance will be create and
     /// this instance will be returned until `Disposed()`
     /// </summary>
-    public static PauseSingleton Instancce
+    public static PauseSingleton Instance
     {
         get
         {
@@ -118,6 +121,11 @@ public sealed class PauseSingleton : IDisposable
                 return _instancce;
             }
         }
+    }
+
+    public static bool Active
+    {
+        get => _instancce != null;
     }
 
 
@@ -139,7 +147,14 @@ public sealed class PauseSingleton : IDisposable
         get;
     }
 
- 
+    /// <summary>
+    /// Property use to Get/Set main EventSystem
+    /// </summary>
+    public EventSystem EventSystem
+    {
+        get;
+        set;
+    }
 
 
     /// <summary>

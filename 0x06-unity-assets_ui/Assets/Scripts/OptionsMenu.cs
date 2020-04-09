@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -10,15 +12,23 @@ public class OptionsMenu : MonoBehaviour
     [SerializeField] private Slider _sfxSlider;
     [SerializeField] private Toggle _invertY;
     [SerializeField] private Camera mainCamera;
-    
+    [SerializeField] private EventSystem eventSystem;
+
     // Start is called before the first frame update
     void Awake()
     {
-        Debug.Log("Options Awake");
-        
-        if (SceneManager.GetActiveScene().buildIndex != 1)
-            mainCamera.gameObject.SetActive(false);
-        
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            mainCamera.gameObject.SetActive(true);
+            eventSystem.gameObject.SetActive(true);
+        }
+        else
+            lock (PauseSingleton.padlock)
+            {
+                GameObject firstSelect = transform.Find("BGMSlider").gameObject;
+                PauseSingleton.Instance.EventSystem.SetSelectedGameObject(firstSelect);
+            }
+
         if (PlayerPrefs.HasKey("bgm_level"))
             _bgmSlider.value = PlayerPrefs.GetFloat("bgm_level");
         if (PlayerPrefs.HasKey("sfx_level"))
@@ -35,14 +45,23 @@ public class OptionsMenu : MonoBehaviour
         PlayerPrefs.SetFloat("bgm_level", _bgmSlider.value);
         PlayerPrefs.SetFloat("sfx_level", _sfxSlider.value);
         PlayerPrefs.SetInt("invert_Y", _invertY.isOn ? 1 : 0);
-        if (PauseSingleton.Instancce != null)
+
+        if (AudioControlSingleton.IsActive && AudioControlSingleton.Instance.HasBGMSource)
+            lock (AudioControlSingleton.padlock)
+            {
+                AudioControlSingleton.Instance.BGMSource.volume = _bgmSlider.value;
+            }
+        else
+            Debug.Log($"Singleton for audio failed :\n" +
+                      $" details instance active? {AudioControlSingleton.IsActive} and Has Source? {AudioControlSingleton.Instance.HasBGMSource}");
+
+        if (PauseSingleton.Active)
             lock (PauseSingleton.padlock)
             {
-                PauseSingleton.Instancce.Camera.isInverted = _invertY.isOn;
+                PauseSingleton.Instance.Camera.isInverted = _invertY.isOn;
             }
 
         PlayerPrefs.Save();
-        
     }
 
     /// <summary>
@@ -56,11 +75,12 @@ public class OptionsMenu : MonoBehaviour
         {
             lock (PauseSingleton.padlock)
             {
-                PauseSingleton.Instancce.Menu.SetActive(true);
+                PauseSingleton.Instance.Menu.SetActive(true);
+                GameObject fistSelect = GameObject.Find("PauseCanvas").transform.Find("ResumeButton").gameObject;
+                PauseSingleton.Instance.EventSystem.SetSelectedGameObject(fistSelect);
             }
-        
+
             SceneManager.UnloadSceneAsync(1);
         }
     }
-
 }

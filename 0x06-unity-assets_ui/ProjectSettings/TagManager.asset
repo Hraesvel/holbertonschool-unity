@@ -11,6 +11,8 @@ TagManager:
   - WinFlag
   - Obstacal
   - Obstacle
+  - BGM
+  - SFX
   layers:
   - Default
   - TransparentFX
