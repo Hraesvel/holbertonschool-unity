@@ -9,9 +9,7 @@ using UnityEngine.UI;
 
 public class WinMenu : MonoBehaviour
 {
-    [SerializeField] private Text finalText;
     private Button _nextButton;
-
     
     private void Start()
     {
@@ -21,6 +19,7 @@ public class WinMenu : MonoBehaviour
         var cur = SceneManager.GetActiveScene().buildIndex;
         if (SceneManager.sceneCountInBuildSettings - 1 == cur)
             _nextButton.gameObject.SetActive(false);
+
     }
 
 
@@ -31,6 +30,7 @@ public class WinMenu : MonoBehaviour
     public void DisplayWinMenu(string time)
     {
         gameObject.SetActive(true);
+        var finalText = transform.Find("FinalTime").GetComponent<Text>();
         finalText.text = time;
     }
 
