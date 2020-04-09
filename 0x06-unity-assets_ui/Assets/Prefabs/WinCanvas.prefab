@@ -178,7 +178,7 @@ GameObject:
   - component: {fileID: 7320424214219255326}
   - component: {fileID: 7320424214219255325}
   m_Layer: 5
-  m_Name: Text
+  m_Name: TitleText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -242,7 +242,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: You Win
+  m_Text: YOU WIN!
 --- !u!1 &7320424214550026758
 GameObject:
   m_ObjectHideFlags: 0
@@ -432,7 +432,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   finalText: {fileID: 1146808029769922503}
-  nextButton: {fileID: 7436318879849563104}
 --- !u!1001 &2470959993979175177
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -568,18 +567,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 2470959993979175177}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7436318879849563104 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5006174963026248425, guid: 90af7b8959ab15d419e178c9c21881c3,
-    type: 3}
-  m_PrefabInstance: {fileID: 2470959993979175177}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &8130147618028318457
 PrefabInstance:
   m_ObjectHideFlags: 0
