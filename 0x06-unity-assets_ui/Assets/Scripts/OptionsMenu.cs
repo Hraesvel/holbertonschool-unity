@@ -38,7 +38,7 @@ public class OptionsMenu : MonoBehaviour
         if (PauseSingleton.Instancce != null)
             lock (PauseSingleton.padlock)
             {
-                PauseSingleton.Instancce.Camera.IsInverted = _invertY.isOn;
+                PauseSingleton.Instancce.Camera.isInverted = _invertY.isOn;
             }
 
         PlayerPrefs.Save();

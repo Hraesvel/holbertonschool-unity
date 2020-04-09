@@ -110,7 +110,7 @@ public class PlayerController : MonoBehaviour
         rig = transform.GetComponent<Rigidbody>();
         _camera = cameraController.GetComponent<CameraController>();
         _camera.Yaw = 0;
-        _camera.IsInverted = PlayerPrefs.GetInt("invert_Y") != 0 ? true : false;
+        _camera.isInverted = PlayerPrefs.GetInt("invert_Y") != 0 ? true : false;
     }
 
     private void Start()
