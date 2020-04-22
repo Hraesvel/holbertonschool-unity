@@ -8,6 +8,7 @@
 */[Bb]uild/
 */[Bb]uilds/
 */[Ll]ogs/
+*/.[Ii]dea/
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
@@ -68,7 +69,8 @@ crashlytics-build.properties
 0x05-unity-assets_models_textures/.idea/
 
 0x06-unity-assets_ui/.idea/
-
 0x06-unity-assets_ui/External/
-
 !/0x06-unity-assets_ui/Builds/
+
+0x07-unity-animation/External/
+!/0x07-unity-animation/Builds/
