@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Mime;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -19,7 +20,6 @@ public class WinMenu : MonoBehaviour
         var cur = SceneManager.GetActiveScene().buildIndex;
         if (SceneManager.sceneCountInBuildSettings - 1 == cur)
             _nextButton.gameObject.SetActive(false);
-
     }
 
 
@@ -32,6 +32,9 @@ public class WinMenu : MonoBehaviour
         gameObject.SetActive(true);
         var finalText = transform.Find("FinalTime").GetComponent<Text>();
         finalText.text = time;
+        Time.timeScale = 0;
+        EventSystem.current.SetSelectedGameObject(transform.Find("NextButton").gameObject);
+        // Debug.Log(EventSystem.current.currentSelectedGameObject.name);
     }
 
     /// <summary>
