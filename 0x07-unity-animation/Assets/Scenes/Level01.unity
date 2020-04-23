@@ -4562,7 +4562,7 @@ Animator:
   m_GameObject: {fileID: 861352479}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 92be0fd038f136449bc06711ff297974, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -4583,8 +4583,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 491a967b520a99d44880d889f9ca014d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 861352483}
-  animCTRL: {fileID: 9100000, guid: 92be0fd038f136449bc06711ff297974, type: 2}
   introClip: {fileID: 7400000, guid: d256fc0abcc59d74f88c8bf2cff2afb1, type: 2}
   camera: {fileID: 1734355653}
   PlayerController: {fileID: 91874843}

@@ -3780,7 +3780,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 957068917}
-  animCTRL: {fileID: 9100000, guid: 92be0fd038f136449bc06711ff297974, type: 2}
   introClip: {fileID: 7400000, guid: 7b39f1209124e7e459568201674abf9c, type: 2}
   camera: {fileID: 1734355653}
   PlayerController: {fileID: 91874843}
@@ -3796,7 +3795,7 @@ Animator:
   m_GameObject: {fileID: 957068915}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 92be0fd038f136449bc06711ff297974, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
