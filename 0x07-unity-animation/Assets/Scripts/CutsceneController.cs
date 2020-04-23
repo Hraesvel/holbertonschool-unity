@@ -3,16 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-using UnityEditor.Animations;
-using UnityEditorInternal;
 using UnityEngine.SceneManagement;
-using AnimatorController = UnityEditor.Animations.AnimatorController;
+
 
 public class CutsceneController : MonoBehaviour
 {
-    [SerializeField] private Animator anim;
-    [SerializeField] private AnimatorController animCTRL;
-
+    private Animator anim;
     [SerializeField] private AnimationClip introClip;
     
     [SerializeField] private Camera camera;
@@ -23,18 +19,9 @@ public class CutsceneController : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
-        AnimatorOverrideController ov = new AnimatorOverrideController(animCTRL);
-        // var clips = new List<KeyValuePair<AnimationClip, AnimationClip>>();
-        // ov.GetOverrides(clips);
-
-        // for (int i = 0 ; i < clips.Count; i++)
-        // {
-        //     if (clips[i].Key.ToString() != "Intro01")
-        //         continue;
-        //    
-        //     clips[i] = new KeyValuePair<AnimationClip, AnimationClip>(introClip, introClip);
-        // }
-
+        anim = GetComponent<Animator>();
+        AnimatorOverrideController ov = new AnimatorOverrideController(anim.runtimeAnimatorController);
+        
         ov["Intro01"] = introClip;
         ov.name = $"OVERRIDE - {introClip.name}";
         
