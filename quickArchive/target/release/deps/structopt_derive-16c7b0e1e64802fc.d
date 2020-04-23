@@ -1,0 +1,10 @@
+/mnt/c/Users/msmit/work/VRAR/holbertonschool-unity/quickArchive/target/release/deps/libstructopt_derive-16c7b0e1e64802fc.so: /home/ostoyae/.cargo/registry/src/github.com-1ecc6299db9ec823/structopt-derive-0.4.7/src/lib.rs /home/ostoyae/.cargo/registry/src/github.com-1ecc6299db9ec823/structopt-derive-0.4.7/src/attrs.rs /home/ostoyae/.cargo/registry/src/github.com-1ecc6299db9ec823/structopt-derive-0.4.7/src/doc_comments.rs /home/ostoyae/.cargo/registry/src/github.com-1ecc6299db9ec823/structopt-derive-0.4.7/src/parse.rs /home/ostoyae/.cargo/registry/src/github.com-1ecc6299db9ec823/structopt-derive-0.4.7/src/spanned.rs /home/ostoyae/.cargo/registry/src/github.com-1ecc6299db9ec823/structopt-derive-0.4.7/src/ty.rs
+
+/mnt/c/Users/msmit/work/VRAR/holbertonschool-unity/quickArchive/target/release/deps/structopt_derive-16c7b0e1e64802fc.d: /home/ostoyae/.cargo/registry/src/github.com-1ecc6299db9ec823/structopt-derive-0.4.7/src/lib.rs /home/ostoyae/.cargo/registry/src/github.com-1ecc6299db9ec823/structopt-derive-0.4.7/src/attrs.rs /home/ostoyae/.cargo/registry/src/github.com-1ecc6299db9ec823/structopt-derive-0.4.7/src/doc_comments.rs /home/ostoyae/.cargo/registry/src/github.com-1ecc6299db9ec823/structopt-derive-0.4.7/src/parse.rs /home/ostoyae/.cargo/registry/src/github.com-1ecc6299db9ec823/structopt-derive-0.4.7/src/spanned.rs /home/ostoyae/.cargo/registry/src/github.com-1ecc6299db9ec823/structopt-derive-0.4.7/src/ty.rs
+
+/home/ostoyae/.cargo/registry/src/github.com-1ecc6299db9ec823/structopt-derive-0.4.7/src/lib.rs:
+/home/ostoyae/.cargo/registry/src/github.com-1ecc6299db9ec823/structopt-derive-0.4.7/src/attrs.rs:
+/home/ostoyae/.cargo/registry/src/github.com-1ecc6299db9ec823/structopt-derive-0.4.7/src/doc_comments.rs:
+/home/ostoyae/.cargo/registry/src/github.com-1ecc6299db9ec823/structopt-derive-0.4.7/src/parse.rs:
+/home/ostoyae/.cargo/registry/src/github.com-1ecc6299db9ec823/structopt-derive-0.4.7/src/spanned.rs:
+/home/ostoyae/.cargo/registry/src/github.com-1ecc6299db9ec823/structopt-derive-0.4.7/src/ty.rs:

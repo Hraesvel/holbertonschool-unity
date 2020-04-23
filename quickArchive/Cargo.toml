@@ -1,0 +1,12 @@
+[package]
+name = "quickArchive"
+version = "0.1.0"
+authors = ["Martin Smith <mcodesmith@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+zip-dir ="0.1.0"
+zip = "0.5.5"
+structopt = { version = "0.3", default-features = true }

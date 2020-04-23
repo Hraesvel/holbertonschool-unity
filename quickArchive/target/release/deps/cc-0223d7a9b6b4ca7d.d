@@ -1,0 +1,12 @@
+C:\Users\msmit\work\VRAR\holbertonschool-unity\0x07-unity-animation\Builds\quickArchive\target\release\deps\cc-0223d7a9b6b4ca7d.rmeta: C:\Users\msmit\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.52\src\lib.rs C:\Users\msmit\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.52\src\registry.rs C:\Users\msmit\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.52\src\winapi.rs C:\Users\msmit\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.52\src\com.rs C:\Users\msmit\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.52\src\setup_config.rs C:\Users\msmit\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.52\src\windows_registry.rs
+
+C:\Users\msmit\work\VRAR\holbertonschool-unity\0x07-unity-animation\Builds\quickArchive\target\release\deps\libcc-0223d7a9b6b4ca7d.rlib: C:\Users\msmit\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.52\src\lib.rs C:\Users\msmit\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.52\src\registry.rs C:\Users\msmit\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.52\src\winapi.rs C:\Users\msmit\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.52\src\com.rs C:\Users\msmit\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.52\src\setup_config.rs C:\Users\msmit\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.52\src\windows_registry.rs
+
+C:\Users\msmit\work\VRAR\holbertonschool-unity\0x07-unity-animation\Builds\quickArchive\target\release\deps\cc-0223d7a9b6b4ca7d.d: C:\Users\msmit\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.52\src\lib.rs C:\Users\msmit\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.52\src\registry.rs C:\Users\msmit\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.52\src\winapi.rs C:\Users\msmit\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.52\src\com.rs C:\Users\msmit\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.52\src\setup_config.rs C:\Users\msmit\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.52\src\windows_registry.rs
+
+C:\Users\msmit\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.52\src\lib.rs:
+C:\Users\msmit\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.52\src\registry.rs:
+C:\Users\msmit\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.52\src\winapi.rs:
+C:\Users\msmit\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.52\src\com.rs:
+C:\Users\msmit\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.52\src\setup_config.rs:
+C:\Users\msmit\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.52\src\windows_registry.rs:

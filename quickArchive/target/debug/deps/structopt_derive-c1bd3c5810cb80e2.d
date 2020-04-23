@@ -1,0 +1,10 @@
+C:\Users\msmit\work\VRAR\holbertonschool-unity\0x07-unity-animation\Builds\quickArchive\target\debug\deps\structopt_derive-c1bd3c5810cb80e2.dll: C:\Users\msmit\.cargo\registry\src\github.com-1ecc6299db9ec823\structopt-derive-0.4.7\src\lib.rs C:\Users\msmit\.cargo\registry\src\github.com-1ecc6299db9ec823\structopt-derive-0.4.7\src\attrs.rs C:\Users\msmit\.cargo\registry\src\github.com-1ecc6299db9ec823\structopt-derive-0.4.7\src\doc_comments.rs C:\Users\msmit\.cargo\registry\src\github.com-1ecc6299db9ec823\structopt-derive-0.4.7\src\parse.rs C:\Users\msmit\.cargo\registry\src\github.com-1ecc6299db9ec823\structopt-derive-0.4.7\src\spanned.rs C:\Users\msmit\.cargo\registry\src\github.com-1ecc6299db9ec823\structopt-derive-0.4.7\src\ty.rs
+
+C:\Users\msmit\work\VRAR\holbertonschool-unity\0x07-unity-animation\Builds\quickArchive\target\debug\deps\structopt_derive-c1bd3c5810cb80e2.d: C:\Users\msmit\.cargo\registry\src\github.com-1ecc6299db9ec823\structopt-derive-0.4.7\src\lib.rs C:\Users\msmit\.cargo\registry\src\github.com-1ecc6299db9ec823\structopt-derive-0.4.7\src\attrs.rs C:\Users\msmit\.cargo\registry\src\github.com-1ecc6299db9ec823\structopt-derive-0.4.7\src\doc_comments.rs C:\Users\msmit\.cargo\registry\src\github.com-1ecc6299db9ec823\structopt-derive-0.4.7\src\parse.rs C:\Users\msmit\.cargo\registry\src\github.com-1ecc6299db9ec823\structopt-derive-0.4.7\src\spanned.rs C:\Users\msmit\.cargo\registry\src\github.com-1ecc6299db9ec823\structopt-derive-0.4.7\src\ty.rs
+
+C:\Users\msmit\.cargo\registry\src\github.com-1ecc6299db9ec823\structopt-derive-0.4.7\src\lib.rs:
+C:\Users\msmit\.cargo\registry\src\github.com-1ecc6299db9ec823\structopt-derive-0.4.7\src\attrs.rs:
+C:\Users\msmit\.cargo\registry\src\github.com-1ecc6299db9ec823\structopt-derive-0.4.7\src\doc_comments.rs:
+C:\Users\msmit\.cargo\registry\src\github.com-1ecc6299db9ec823\structopt-derive-0.4.7\src\parse.rs:
+C:\Users\msmit\.cargo\registry\src\github.com-1ecc6299db9ec823\structopt-derive-0.4.7\src\spanned.rs:
+C:\Users\msmit\.cargo\registry\src\github.com-1ecc6299db9ec823\structopt-derive-0.4.7\src\ty.rs:
