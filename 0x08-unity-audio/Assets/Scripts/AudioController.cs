@@ -20,6 +20,7 @@ public class AudioController : MonoBehaviour
     void Start()
     {
         // Todo: Track changer and one BGM player for whole project
+        // GameObject[] obj = GameObject.FindGameObjectsWithTag("BGM");
         //
         // if (obj.Length > 1)
         // {
@@ -28,19 +29,23 @@ public class AudioController : MonoBehaviour
         // }
         //
         // DontDestroyOnLoad(gameObject);
-        
+
 
         ConfigMixer("BGM", "bgm_level", "VolBGM");
         ConfigMixer("SFX", "sfx_level", "VolSFX");
 
 
         if (!AudioControlSingleton.IsActive)
+        {
+            AudioControlSingleton.Instance.BGMSource = gameObject.GetComponent<AudioSource>();
             AudioControlSingleton.Instance.Mixer = mixer;
+        }
         else
         {
             lock (AudioControlSingleton.padlock)
             {
-                // AudioControlSingleton.Instance.BGMSource = gameObject.GetComponent<AudioSource>();
+                if (!AudioControlSingleton.Instance.HasBGMSource)
+                    AudioControlSingleton.Instance.BGMSource = gameObject.GetComponent<AudioSource>();
                 if (!AudioControlSingleton.Instance.HasMixerSource)
                     AudioControlSingleton.Instance.Mixer = mixer;
             }
@@ -74,13 +79,8 @@ public sealed class AudioControlSingleton : IDisposable
     /// Field for handles Mutex locking.
     /// </summary>
     public static readonly object padlock = new object();
-
-    public bool _hasBGMSource;
-
-
-    AudioControlSingleton()
-    {
-    }
+    
+    AudioControlSingleton() { }
 
     public static AudioControlSingleton Instance
     {
@@ -105,8 +105,18 @@ public sealed class AudioControlSingleton : IDisposable
     /// <summary>
     /// Property to get/set Background music source
     /// </summary>
-    [Obsolete("Direct audio source manipulation is being replace with Mixer board")]
     public AudioSource BGMSource { get; set; }
+
+    public void ChangeBGMTrack(AudioClip track)
+    {
+        if (!HasBGMSource)
+        {
+            Debug.Log("BGM audio source was not assigned/found to AudioControlSingleton");
+            return;
+        }
+        BGMSource.clip = track;
+        // BGMSource.time = 0f;
+    }
 
     public AudioMixer Mixer { get; set; }
 
@@ -114,8 +124,6 @@ public sealed class AudioControlSingleton : IDisposable
     /// Property to check if Instance has audio source assigned
     /// </summary>
     ///
-    [Obsolete("Direct audio source manipulation is being replace with Mixer board")]
-
     public bool HasBGMSource
     {
         get => BGMSource != null;
