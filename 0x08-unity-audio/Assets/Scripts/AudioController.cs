@@ -19,42 +19,7 @@ public class AudioController : MonoBehaviour
 
     void Start()
     {
-        // Todo: Track changer
-
-        AudioMixer bgm = mixer.FindMatchingGroups("BGM")[0].audioMixer;
-
-        if (PlayerPrefs.HasKey("bgm_level"))
-        {
-            if (PlayerPrefs.GetFloat("bgm_level") > 0f)
-                bgm.SetFloat("VolBGM", 20f * Mathf.Log10(PlayerPrefs.GetFloat("bgm_level")));
-            else
-                bgm.SetFloat("VolBGM", -80f);
-        }
-        else
-        {
-            bgm.GetFloat("VolBGM", out var db);
-            PlayerPrefs.SetFloat("bgm_level", Mathf.Pow(10f, db / 20f));
-        }
-
-
-        AudioMixer sfx = mixer.FindMatchingGroups("SFX")[0].audioMixer;
-        if (PlayerPrefs.HasKey("sfx_level"))
-        {
-            if (PlayerPrefs.GetFloat("sfx_level") > 0f)
-                sfx.SetFloat("VolSFX", 20f * Mathf.Log10(PlayerPrefs.GetFloat("sfx_level")));
-            else
-                sfx.SetFloat("VolSFX", -80f);
-        }
-        else
-        {
-            sfx.SetFloat(
-                "VolSFX",
-                20f * Mathf.Log10(sfxDefultVolume)
-            );
-            sfx.GetFloat("VolSFX", out var db);
-            PlayerPrefs.SetFloat("sfx_level", Mathf.Pow(10f, db / 20f));
-        }
-
+        // Todo: Track changer and one BGM player for whole project
         //
         // if (obj.Length > 1)
         // {
@@ -63,18 +28,10 @@ public class AudioController : MonoBehaviour
         // }
         //
         // DontDestroyOnLoad(gameObject);
+        
 
-
-        // if (AudioControlSingleton.IsActive && !AudioControlSingleton.Instance.HasMixerSource)
-        //     AudioControlSingleton.Instance.Mixer = mixer;
-        // else
-        // {
-        //     lock (AudioControlSingleton.padlock)
-        //     {
-        //         // AudioControlSingleton.Instance.BGMSource = gameObject.GetComponent<AudioSource>();
-        //         AudioControlSingleton.Instance.Mixer = mixer;
-        //     }
-        // }
+        ConfigMixer("BGM", "bgm_level", "VolBGM");
+        ConfigMixer("SFX", "sfx_level", "VolSFX");
 
 
         if (!AudioControlSingleton.IsActive)
@@ -87,6 +44,24 @@ public class AudioController : MonoBehaviour
                 if (!AudioControlSingleton.Instance.HasMixerSource)
                     AudioControlSingleton.Instance.Mixer = mixer;
             }
+        }
+    }
+
+    private void ConfigMixer(string mixerGrp, string playerPrefKey, string mixerParam)
+    {
+        AudioMixer bgm = mixer.FindMatchingGroups(mixerGrp)[0].audioMixer;
+
+        if (PlayerPrefs.HasKey(playerPrefKey))
+        {
+            if (PlayerPrefs.GetFloat(playerPrefKey) > 0f)
+                bgm.SetFloat(mixerParam, 20f * Mathf.Log10(PlayerPrefs.GetFloat(playerPrefKey)));
+            else
+                bgm.SetFloat(mixerParam, -80f);
+        }
+        else
+        {
+            bgm.GetFloat(mixerParam, out var db);
+            PlayerPrefs.SetFloat(playerPrefKey, Mathf.Pow(10f, db / 20f));
         }
     }
 }
