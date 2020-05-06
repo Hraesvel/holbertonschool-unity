@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
@@ -9,7 +10,8 @@ public class PauseMenu : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] private Timer timer;
-    
+    [SerializeField] private AudioMixer _mixer;
+    [SerializeField] private AudioMixerSnapshot[] mixerSnaps;
 
     private bool _isPaused;
 
@@ -19,7 +21,7 @@ public class PauseMenu : MonoBehaviour
         PauseSingleton.Instance.Camera = FindObjectOfType<CameraController>();
         PauseSingleton.Instance.EventSystem = EventSystem.current;
     }
-    
+
 
     /// <summary>
     /// Property to check if pause menu is toggled
@@ -34,19 +36,28 @@ public class PauseMenu : MonoBehaviour
     /// </summary>
     public void Pause()
     {
+        _mixer.TransitionToSnapshots(
+            mixerSnaps,
+            new[] {0f, 1f},
+            0f
+        );
         Time.timeScale = 0;
         _isPaused = true;
         gameObject.SetActive(true);
         EventSystem.current.SetSelectedGameObject(transform.Find("ResumeButton").gameObject);
     }
 
-   
 
     /// <summary>
     /// method that handles resuming the game and menu toggle off
     /// </summary>
     public void Resume()
     {
+        _mixer.TransitionToSnapshots(
+            mixerSnaps,
+            new[] {1.0f, 0f},
+            0f
+        );
         _isPaused = false;
         gameObject.SetActive(false);
         Time.timeScale = 1;
@@ -58,6 +69,7 @@ public class PauseMenu : MonoBehaviour
     public void Restart()
     {
         Time.timeScale = 1;
+        _mixer.FindSnapshot("Master").TransitionTo(0f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -67,11 +79,12 @@ public class PauseMenu : MonoBehaviour
     public void MainMenu()
     {
         Time.timeScale = 1;
+        _mixer.FindSnapshot("Master").TransitionTo(0f);
         PauseSingleton.Instance.Dispose();
         SceneManager.LoadScene(0);
     }
 
-    
+
     /// <summary>
     /// Method that will open the Options menu
     /// </summary>
@@ -93,7 +106,7 @@ public class PauseMenu : MonoBehaviour
 public sealed class PauseSingleton : IDisposable
 {
     private static PauseSingleton _instancce = null;
-    
+
     /// <summary>
     /// Field for handles Mutex locking.
     /// </summary>
@@ -141,20 +154,12 @@ public sealed class PauseSingleton : IDisposable
     /// <summary>
     /// Property use to Get/Set main CameraController 
     /// </summary>
-    public CameraController Camera
-    {
-        set;
-        get;
-    }
+    public CameraController Camera { set; get; }
 
     /// <summary>
     /// Property use to Get/Set main EventSystem
     /// </summary>
-    public EventSystem EventSystem
-    {
-        get;
-        set;
-    }
+    public EventSystem EventSystem { get; set; }
 
 
     /// <summary>

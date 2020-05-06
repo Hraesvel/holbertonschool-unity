@@ -209,7 +209,6 @@ public class PlayerController : MonoBehaviour
         _playerAnime.SetBool(Falling, false);
         _playerAnime.SetBool(Grounded, true);
         _playerAudio.Terrain = other.gameObject.tag;
-        // _playerAudio.Landing();
     }
 
     private void OnTriggerExit(Collider other)

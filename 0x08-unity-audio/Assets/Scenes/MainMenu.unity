@@ -831,7 +831,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 419008984}
           m_MethodName: Play
           m_Mode: 1
           m_Arguments:
@@ -1022,6 +1022,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1339020958}
   - component: {fileID: 1339020957}
+  - component: {fileID: 1339020959}
   m_Layer: 0
   m_Name: Wallpaper
   m_TagString: Untagged
@@ -1040,7 +1041,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 243661103393494262, guid: d662d6d3eacb9bb408b2d648674c0a3f,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: e71c7b624914b064aa7c36b7b4c104c2, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 2b54130939164714bb48ad00d5d6b6fd, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -1140,6 +1141,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1339020959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339020956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dba521f265f63bb48be7ccf5b540fbf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bgmDefultVolume: 0.35
+  mixer: {fileID: 24100000, guid: d662d6d3eacb9bb408b2d648674c0a3f, type: 2}
 --- !u!224 &1355307271 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3515593009665332961, guid: f691d967edee9fe43852a9d7f5359334,
@@ -1177,6 +1192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bgmDefultVolume: 0.35
+  mixer: {fileID: 0}
 --- !u!82 &1575384762
 AudioSource:
   m_ObjectHideFlags: 0
