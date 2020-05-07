@@ -37,15 +37,15 @@ public class AudioController : MonoBehaviour
 
         if (!AudioControlSingleton.IsActive)
         {
-            AudioControlSingleton.Instance.BGMSource = gameObject.GetComponent<AudioSource>();
+            // AudioControlSingleton.Instance.BGMSource = gameObject.GetComponent<AudioSource>();
             AudioControlSingleton.Instance.Mixer = mixer;
         }
         else
         {
             lock (AudioControlSingleton.padlock)
             {
-                if (!AudioControlSingleton.Instance.HasBGMSource)
-                    AudioControlSingleton.Instance.BGMSource = gameObject.GetComponent<AudioSource>();
+                // if (!AudioControlSingleton.Instance.HasBGMSource)
+                //     AudioControlSingleton.Instance.BGMSource = gameObject.GetComponent<AudioSource>();
                 if (!AudioControlSingleton.Instance.HasMixerSource)
                     AudioControlSingleton.Instance.Mixer = mixer;
             }
