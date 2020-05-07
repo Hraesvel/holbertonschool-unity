@@ -1045,7 +1045,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1173,7 +1173,7 @@ GameObject:
   - component: {fileID: 1575384762}
   - component: {fileID: 1575384761}
   m_Layer: 0
-  m_Name: Audio Source
+  m_Name: BGM
   m_TagString: BGM
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1202,7 +1202,8 @@ AudioSource:
   m_GameObject: {fileID: 1575384760}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243661103393494262, guid: d662d6d3eacb9bb408b2d648674c0a3f,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: e71c7b624914b064aa7c36b7b4c104c2, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -1264,6 +1265,15 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.1509901
       value: 0
       inSlope: 0
       outSlope: 0
