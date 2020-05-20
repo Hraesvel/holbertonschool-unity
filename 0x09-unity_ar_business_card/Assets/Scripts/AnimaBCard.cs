@@ -1,20 +1,20 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using Vuforia;
 
 public class AnimaBCard : MonoBehaviour, ITrackableEventHandler
 {
-
     private TrackableBehaviour _mTrackableBehaviour;
-    
+
     private static readonly int OpenMenu = Animator.StringToHash("OpenMenu");
-    [SerializeField] private Animator anim;
-    
-    
+    [SerializeField] private List<Animator> anim = new List<Animator>();
+
+
     public void OnTrackableStateChanged(TrackableBehaviour.Status previousStatus, TrackableBehaviour.Status newStatus)
     {
         Debug.Log("Track state changed to something!");
 
-        if (!anim)
+        if (anim.Count == 0)
             return;
 
         if (
@@ -22,15 +22,18 @@ public class AnimaBCard : MonoBehaviour, ITrackableEventHandler
             newStatus == TrackableBehaviour.Status.TRACKED
         )
         {
-            
-            if (anim.GetBool(OpenMenu)) return;
+            if (anim[0].GetBool(OpenMenu)) return;
             Debug.Log("Opening Menu");
-            anim.SetBool(OpenMenu, true);
+            foreach (var a in anim)
+                a.SetBool(OpenMenu, true);
         }
         else
         {
-            anim.Play("Start", -1, 0f);
-            anim.SetBool(OpenMenu, false);
+            foreach (var a in anim)
+            {
+                a.Play("Start", -1, 0f);
+                a.SetBool(OpenMenu, false);
+            }
         }
     }
 
@@ -43,5 +46,4 @@ public class AnimaBCard : MonoBehaviour, ITrackableEventHandler
             _mTrackableBehaviour.RegisterTrackableEventHandler(this);
         }
     }
-    
 }
