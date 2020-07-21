@@ -91,6 +91,7 @@ public class PlayerController : MonoBehaviour
     private Animator _playerAnime;
     private Vector3 _facingRot;
 
+    public string CurrentTerrian { get; set; }
 
     [ContextMenu("Use Debug Spawn point")]
     private void ChangePlaySpawn()
@@ -201,6 +202,8 @@ public class PlayerController : MonoBehaviour
         _hasJumped = false;
         _playerAnime.SetBool(Falling, false);
         _playerAnime.SetBool(Grounded, true);
+        // if (other.gameObject.layer == platform)
+            CurrentTerrian = other.gameObject.tag.ToLower();
     }
 
     private void OnTriggerExit(Collider other)
