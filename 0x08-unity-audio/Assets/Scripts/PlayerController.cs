@@ -1,13 +1,7 @@
 using System;
-using System.Numerics;
-using System.Runtime.CompilerServices;
 using PlayControls;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
-using UnityEngine.UI;
-using Quaternion = UnityEngine.Quaternion;
-using Vector3 = UnityEngine.Vector3;
 
 public class PlayerController : MonoBehaviour
 {
