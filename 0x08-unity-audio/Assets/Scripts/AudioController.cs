@@ -2,46 +2,69 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using Object = UnityEngine.Object;
 
 public class AudioController : MonoBehaviour
 {
-    [Tooltip("Set the default volume of the background music if player's pref are missing, Please set to safe settings")]
-    [Range(0, 1)] [SerializeField] private float bgmDefultVolume = .35f;
+    [SerializeField] private AudioMixer audioMixer;
+    [SerializeField] private AudioSource mm_BgmSource;
 
-    void Awake()
+    void Start()
     {
         var obj = GameObject.FindGameObjectsWithTag("BGM");
 
+        if (obj.Length >= 2)
+        {
+            Destroy(mm_BgmSource);
+            Destroy(this.gameObject);
+        }
+        
         if (PlayerPrefs.HasKey("bgm_level"))
-            gameObject.GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat("bgm_level");
+        {
+            var vol = PlayerPrefs.GetFloat("bgm_level");
+            audioMixer.SetFloat("BGM_VOL",
+                vol > 0 ? 20f * Mathf.Log10(vol) : -80f
+                );
+        }
         else
         {
-            gameObject.GetComponent<AudioSource>().volume = bgmDefultVolume;
-            PlayerPrefs.SetFloat("bgm_level", bgmDefultVolume);
+            audioMixer.GetFloat("BGM_VOL", out var db);
+            PlayerPrefs.SetFloat("bgm_level", Mathf.Pow(10f, db/20f));
         }
-
-        if (obj.Length > 1)
+        
+        if (PlayerPrefs.HasKey("sfx_level"))
         {
-            Destroy(gameObject);
-            return;
+            var vol = PlayerPrefs.GetFloat("sfx_level");
+            audioMixer.SetFloat("SFX_VOL",
+                vol > 0 ? 20f * Mathf.Log10(vol) : -80f
+                );
         }
-
-        DontDestroyOnLoad(gameObject);
-
-
-        if (AudioControlSingleton.IsActive && !AudioControlSingleton.Instance.HasBGMSource)
-            AudioControlSingleton.Instance.BGMSource = gameObject.GetComponent<AudioSource>();
         else
         {
-            lock (AudioControlSingleton.padlock)
-            {
-                AudioControlSingleton.Instance.BGMSource = gameObject.GetComponent<AudioSource>();
-            }
+            audioMixer.GetFloat("SFX_VOL", out var db);
+            PlayerPrefs.SetFloat("sfx_level", Mathf.Pow(10f , db/20f));
         }
+        
+        DontDestroyOnLoad(mm_BgmSource);
+        Destroy(this.gameObject);
+
+
+
+        //
+        // if (AudioControlSingleton.IsActive && !AudioControlSingleton.Instance.HasBGMSource)
+        //     AudioControlSingleton.Instance.BGMSource = gameObject.GetComponent<AudioSource>();
+        // else
+        // {
+        //     lock (AudioControlSingleton.padlock)
+        //     {
+        //         AudioControlSingleton.Instance.BGMSource = gameObject.GetComponent<AudioSource>();
+        //     }
+        // }
     }
 }
 
+[Obsolete]
 public sealed class AudioControlSingleton : IDisposable
 {
     private static AudioControlSingleton _instance = null;
