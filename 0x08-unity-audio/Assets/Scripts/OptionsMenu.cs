@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -13,6 +14,7 @@ public class OptionsMenu : MonoBehaviour
     [SerializeField] private Toggle _invertY;
     [SerializeField] private Camera mainCamera;
     [SerializeField] private EventSystem eventSystem;
+    [SerializeField] private AudioMixer audioMixer;
 
     // Start is called before the first frame update
     void Awake()
@@ -30,9 +32,17 @@ public class OptionsMenu : MonoBehaviour
             }
 
         if (PlayerPrefs.HasKey("bgm_level"))
+        {
             _bgmSlider.value = PlayerPrefs.GetFloat("bgm_level");
+            audioMixer.SetFloat("BGM_VOL", 20f * Mathf.Log10(_bgmSlider.value));
+        }
+
         if (PlayerPrefs.HasKey("sfx_level"))
+        {
             _sfxSlider.value = PlayerPrefs.GetFloat("sfx_level");
+            audioMixer.SetFloat("SFX_VOL", 20f * Mathf.Log10(_sfxSlider.value));
+        }
+
         if (PlayerPrefs.HasKey("invert_Y"))
             _invertY.isOn = PlayerPrefs.GetInt("invert_Y") != 0;
     }
@@ -46,15 +56,24 @@ public class OptionsMenu : MonoBehaviour
         PlayerPrefs.SetFloat("sfx_level", _sfxSlider.value);
         PlayerPrefs.SetInt("invert_Y", _invertY.isOn ? 1 : 0);
 
-        if (AudioControlSingleton.IsActive && AudioControlSingleton.Instance.HasBGMSource)
-            lock (AudioControlSingleton.padlock)
-            {
-                AudioControlSingleton.Instance.BGMSource.volume = _bgmSlider.value;
-            }
-        else
-            Debug.Log($"Singleton for audio failed :\n" +
-                      $" details instance active? {AudioControlSingleton.IsActive} and Has Source? {AudioControlSingleton.Instance.HasBGMSource}");
+        audioMixer.SetFloat("BGM_VOL",
+            _bgmSlider.value > 0 ? 20f * Mathf.Log10(_bgmSlider.value) : -80f
+        );
+        audioMixer.SetFloat("SFX_VOL",
+            _sfxSlider.value > 0 ? 20f * Mathf.Log10(_sfxSlider.value) : -80f
+        );
 
+        //[Obsolete]
+        // if (AudioControlSingleton.IsActive && AudioControlSingleton.Instance.HasBGMSource)
+        //     lock (AudioControlSingleton.padlock)
+        //     {
+        //         AudioControlSingleton.Instance.BGMSource.volume = _bgmSlider.value;
+        //     }
+        // else
+        //     Debug.Log($"Singleton for audio failed :\n" +
+        //               $" details instance active? {AudioControlSingleton.IsActive} and Has Source? {AudioControlSingleton.Instance.HasBGMSource}");
+        //
+        
         if (PauseSingleton.Active)
             lock (PauseSingleton.padlock)
             {
