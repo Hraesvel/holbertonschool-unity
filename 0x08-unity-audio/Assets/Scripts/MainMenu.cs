@@ -26,6 +26,8 @@ public class MainMenu : MonoBehaviour
     /// </summary>
     public void LoadLevel(string name)
     {
+        foreach (var bgm in  GameObject.FindGameObjectsWithTag("BGM"))
+            Destroy(bgm);
         SceneManager.LoadScene(name);
     }
 }
