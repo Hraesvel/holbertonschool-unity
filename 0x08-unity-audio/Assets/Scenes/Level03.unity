@@ -6912,7 +6912,7 @@ GameObject:
   - component: {fileID: 1762033122}
   - component: {fileID: 1762033121}
   m_Layer: 0
-  m_Name: CheeryMonday
+  m_Name: BrittleRille
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6929,7 +6929,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 243228389811042038, guid: 689d89ee5b26c3f4186f2873b62d4973,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 2bf7ce3fa6e7f024e862433a68e3e411, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a6ebc140eb0adb7479f0b61671b02505, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -9040,6 +9040,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _timer: {fileID: 8189473802186633869}
   BGM: {fileID: 1762033121}
+  WinClip: {fileID: 0}
 --- !u!1 &6640697402498335661
 GameObject:
   m_ObjectHideFlags: 0
