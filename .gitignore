@@ -76,3 +76,5 @@ crashlytics-build.properties
 !/0x07-unity-animation/Builds/
 
 !/*/Builds/README.md
+
+!/0x08-unity-audio/Builds/README.md
