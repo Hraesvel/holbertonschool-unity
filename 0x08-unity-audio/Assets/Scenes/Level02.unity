@@ -9101,7 +9101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _timer: {fileID: 1274144803}
   BGM: {fileID: 1677419697}
-  WinClip: {fileID: 0}
+  WinClip: {fileID: 8300000, guid: ca6a604f690bde34dbb368babff3b21d, type: 3}
 --- !u!1 &6640697402498335661
 GameObject:
   m_ObjectHideFlags: 0

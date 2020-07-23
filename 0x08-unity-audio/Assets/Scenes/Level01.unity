@@ -1774,7 +1774,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -10887,11 +10887,11 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1146162631}
   - {fileID: 953364254}
   - {fileID: 1954808643}
   - {fileID: 2076129400}
   - {fileID: 294902736}
-  - {fileID: 1146162631}
   - {fileID: 652546890}
   - {fileID: 498625329}
   - {fileID: 175897945}
@@ -12111,6 +12111,12 @@ PrefabInstance:
       propertyPath: timer
       value: 
       objectReference: {fileID: 1579100013}
+    - target: {fileID: 1424980243878541155, guid: fbf44f45ea50650488c2c0957fe0d56b,
+        type: 3}
+      propertyPath: audioMixer
+      value: 
+      objectReference: {fileID: 24100000, guid: 689d89ee5b26c3f4186f2873b62d4973,
+        type: 2}
     - target: {fileID: 1424980243878541166, guid: fbf44f45ea50650488c2c0957fe0d56b,
         type: 3}
       propertyPath: m_Name
@@ -12292,7 +12298,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _timer: {fileID: 1579100013}
   BGM: {fileID: 183039184}
-  WinClip: {fileID: 0}
+  WinClip: {fileID: 8300000, guid: ca6a604f690bde34dbb368babff3b21d, type: 3}
 --- !u!1 &6640697402498335661
 GameObject:
   m_ObjectHideFlags: 0
