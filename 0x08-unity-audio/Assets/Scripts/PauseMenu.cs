@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
@@ -9,7 +11,9 @@ public class PauseMenu : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] private Timer timer;
-    
+    [SerializeField] private AudioMixer audioMixer;
+    private AudioMixerSnapshot[] Snaps;
+
 
     private bool _isPaused;
 
@@ -18,8 +22,13 @@ public class PauseMenu : MonoBehaviour
         PauseSingleton.Instance.Menu = this.gameObject;
         PauseSingleton.Instance.Camera = FindObjectOfType<CameraController>();
         PauseSingleton.Instance.EventSystem = EventSystem.current;
+        Snaps = new AudioMixerSnapshot[]
+        {
+            audioMixer.FindSnapshot("normal"),
+            audioMixer.FindSnapshot("paused")
+        };
     }
-    
+
 
     /// <summary>
     /// Property to check if pause menu is toggled
@@ -38,9 +47,12 @@ public class PauseMenu : MonoBehaviour
         _isPaused = true;
         gameObject.SetActive(true);
         EventSystem.current.SetSelectedGameObject(transform.Find("ResumeButton").gameObject);
+        audioMixer.TransitionToSnapshots(
+            Snaps,
+            new[] {0f, 1f},
+            0);
     }
 
-   
 
     /// <summary>
     /// method that handles resuming the game and menu toggle off
@@ -50,6 +62,10 @@ public class PauseMenu : MonoBehaviour
         _isPaused = false;
         gameObject.SetActive(false);
         Time.timeScale = 1;
+        audioMixer.TransitionToSnapshots(
+            Snaps,
+            new[] {1f, 0f},
+            0);
     }
 
     /// <summary>
@@ -71,7 +87,7 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    
+
     /// <summary>
     /// Method that will open the Options menu
     /// </summary>
@@ -93,7 +109,7 @@ public class PauseMenu : MonoBehaviour
 public sealed class PauseSingleton : IDisposable
 {
     private static PauseSingleton _instancce = null;
-    
+
     /// <summary>
     /// Field for handles Mutex locking.
     /// </summary>
@@ -141,20 +157,12 @@ public sealed class PauseSingleton : IDisposable
     /// <summary>
     /// Property use to Get/Set main CameraController 
     /// </summary>
-    public CameraController Camera
-    {
-        set;
-        get;
-    }
+    public CameraController Camera { set; get; }
 
     /// <summary>
     /// Property use to Get/Set main EventSystem
     /// </summary>
-    public EventSystem EventSystem
-    {
-        get;
-        set;
-    }
+    public EventSystem EventSystem { get; set; }
 
 
     /// <summary>
